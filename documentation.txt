@@ -13,6 +13,7 @@ Backend setup
 -in package.json file add command dev
 -create folder src and index.ts file
 -create .env file and variable PORT
+-create .env.example file
 -in index.ts file add basic Express setup
 -type command: npm run dev
 -open route: http://localhost:3000/api/v1/test
@@ -26,3 +27,13 @@ Frontend setup
 -type command: npm create vite@latest .
 -type command: npm run dev
 -open route: http://localhost:5173
+
+
+MongoDB setup
+
+-open link: https://www.mongodb.com/products/platform/atlas-database
+-create MongoDB database
+-in .env file create variable MONGODB_CONNECTION_STRING
+-in folder src create folder database and connect.ts file
+-in connect.ts file create and export async function connectDB()
+-in index.ts file import and invoke function connectDB()
