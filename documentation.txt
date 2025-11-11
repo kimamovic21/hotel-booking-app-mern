@@ -3,6 +3,7 @@ Hotel Booking App - Mern Stack
 
 Backend setup
 
+-open link: https://expressjs.com
 -create .gitignore file
 -type command: mkdir backend
 -type command: cd backend
@@ -15,3 +16,13 @@ Backend setup
 -in index.ts file add basic Express setup
 -type command: npm run dev
 -open route: http://localhost:3000/api/v1/test
+
+
+Frontend setup
+
+-open link: https://vite.dev
+-type command: mkdir frontend
+-type command: cd frontend
+-type command: npm create vite@latest .
+-type command: npm run dev
+-open route: http://localhost:5173
