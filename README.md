@@ -1,2 +1,3 @@
-# hotel-booking-app-mern
-Hotel Booking App Mern Stack
+# Hotel Booking App Mern
+
+Hotel Booking App built in Mern Stack

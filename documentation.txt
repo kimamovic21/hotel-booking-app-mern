@@ -1,0 +1,17 @@
+Hotel Booking App - Mern Stack
+
+
+Backend setup
+
+-create .gitignore file
+-type command: mkdir backend
+-type command: cd backend
+-type command: npm init
+-type command: npm i express cors dotenv mongodb mongoose chalk
+-type command: npm i @types/node @types/express @types/cors ts-node typescript tsx --save-dev
+-in package.json file add command dev
+-create folder src and index.ts file
+-create .env file and variable PORT
+-in index.ts file add basic Express setup
+-type command: npm run dev
+-open route: http://localhost:3000/api/v1/test
