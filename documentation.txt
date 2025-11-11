@@ -37,3 +37,14 @@ MongoDB setup
 -in folder src create folder database and connect.ts file
 -in connect.ts file create and export async function connectDB()
 -in index.ts file import and invoke function connectDB()
+
+
+Tailwind CSS setup
+
+-open link: https://tailwindcss.com/docs/installation/using-vite
+-delete App.css file
+-type command: npm i tailwindcss @tailwindcss/vite
+-update vite.config.ts file
+-in index.css file add directive import @tailwindcss
+-update component App.tsx
+-open route: http://localhost:5173
