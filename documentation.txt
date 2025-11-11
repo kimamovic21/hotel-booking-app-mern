@@ -48,3 +48,21 @@ Tailwind CSS setup
 -in index.css file add directive import @tailwindcss
 -update component App.tsx
 -open route: http://localhost:5173
+
+
+Adding layout
+
+-in folder public add app logo
+-create folder layouts and component Layout.tsx
+-create folders components, shared and component Header.tsx
+-in component Layout.tsx import component Header
+-open link: https://reactrouter.com/
+-type command: npm i react-router-dom
+-in component Header.tsx import component Link
+-in tsx create HTML elements with Tailwind CSS classes
+-update eslint.config.js file
+-add basic router setup in component App.tsx
+-create components Hero.tsx and Footer
+-in component Layout.tsx import components Hero and Footer
+-open route: http://localhost:5173
+-open route: http://localhost:5173/search

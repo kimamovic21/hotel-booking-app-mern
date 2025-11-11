@@ -1,10 +1,39 @@
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
+import Layout from './layouts/Layout';
+
 const App = () => {
   return (
-    <div>
-      <h1 className='text-3xl font-bold m-2'>
-        Hotel Booking App
-      </h1>
-    </div>
+    <Router>
+      <Routes>
+        <Route
+          path='/'
+          element={
+            <Layout>
+              <p>Home Page</p>
+            </Layout>
+          }
+        />
+
+        <Route
+          path='/search'
+          element={
+            <Layout>
+              <p>Search</p>
+            </Layout>
+          }
+        />
+
+        <Route
+          path='*'
+          element={<Navigate to='/' />}
+        />
+      </Routes>
+    </Router>
   );
 };
 
