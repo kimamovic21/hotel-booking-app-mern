@@ -138,3 +138,19 @@ User registration form
 -add user information and click button Create Account
 -open MongoDB to see saved user
 -update tsconfig files
+
+
+App Context & Toast notifications
+
+-in folder types create files appContext.ts and toastMessage.ts
+-create and export types
+-in folder src create folder contexts and component AppContext.tsx
+-in component AppContext.tsx add logic for toast context state
+-in component main.tsx import component AppContextProvider
+-in component RegisterPage.tsx import and invoke function useAppContext()
+-in folder shared create component Toast.tsx
+-in component AppContext.tsx import component Toast
+-in component RegisterPage.tsx import and invoke function useNavigate()
+-open route: http://localhost:5173/register
+-add user information and click button Create Account
+-open MongoDB to see saved user
