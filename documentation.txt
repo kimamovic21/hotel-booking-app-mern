@@ -110,3 +110,31 @@ Folder structure update
 -rename file userValidators.ts to authValidators.ts
 -remove files users.controller.ts and users.route.ts
 -update files auth.controller.ts, auth.route.ts and index.ts
+
+
+User registration form
+
+-in folder src create folder pages and component RegisterPage
+-in component App.tsx import component RegisterPage
+-in tsx add component Route for component RegisterPage
+-type command: npm i react-hook-form
+-in component RegisterPage.tsx import and invoke function useForm()
+-in tsx create HTML elements with Tailwind CSS classes
+-add validation logic for register component
+-create folder types and registerFormData.ts file
+-in registerFormData.ts file create and export type RegisterFormData
+-in component RegisterPage.tsx import type RegisterFormData
+-create folder api and api-client.ts file
+-in api-click.ts file import type RegisterFormData
+-create and export async function registerUser
+-create files .env.local and .env.local.example
+-in .env.local file create variable VITE_API_BASE_URL
+-type command: npm i react-query --legacy-peer-deps
+-in component RegisterPage.ts import and invoke function useMutation()
+-in component main.tsx import function QueryClient and component QueryClientProvider from package react-query
+-create variable const queryClient
+-in tsx add add component QueryClientProvider with prop client
+-open route: http://localhost:5173/register
+-add user information and click button Create Account
+-open MongoDB to see saved user
+-update tsconfig files
