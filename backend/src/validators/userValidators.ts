@@ -12,3 +12,10 @@ export const registerUserValidator = [
   check('password', 'Password must be at least 6 characters long')
     .isLength({ min: 6 }),
 ];
+
+export const loginUserValidator = [
+  check('email', 'Please provide a valid email')
+    .isEmail(),
+  check('password', 'Password must be at least 6 characters long')
+    .isLength({ min: 6 }),
+];

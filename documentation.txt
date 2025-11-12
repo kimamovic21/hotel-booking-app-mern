@@ -89,3 +89,17 @@ User registration API
 -open Postman and test endpoint {{BASE_URL}}/api/v1/users/register with POST method
 -test endpoint with correct and wrong data
 -open MongoDB to see saved user
+
+
+User login API
+
+-in userValidators.ts file create and export variable array const loginUserValidator
+-create auth.controller.ts file
+-in auth.controller.ts file create and export async function loginUser()
+-create auth.route.ts file
+-in auth.route.ts file import function loginUser
+-invoke function router.post() for function loginUser
+-in index.ts file import variable authRoutes
+-invoke function app.use() for variable authRoutes
+-open Postman and test endpoint {{BASE_URL}}/api/v1/auth/login with POST method
+-test endpoint with correct and wrong data
