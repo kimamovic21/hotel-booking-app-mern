@@ -66,3 +66,26 @@ Adding layout
 -in component Layout.tsx import components Hero and Footer
 -open route: http://localhost:5173
 -open route: http://localhost:5173/search
+
+
+User registration API
+
+-in folder src create folder models and user.ts file
+-create folder routes and users.route.ts file
+-create folder controllers and users.controller.ts file
+-in users.controller.ts file create and export async function registerUser()
+-in users.route.ts file import function registerUser
+-invoke function router.post() for function registerUser
+-type command: npm i bcryptjs jsonwebtoken
+-type command: npm i @types/bcryptjs @types/jsonwebtoken --save-dev
+-in .env file create variables JWT_SECRET_KEY and NODE_ENV
+-type command: node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
+-in index.ts file import variable userRoutes from users.route.ts file
+-type command: npm i express-validator
+-create folder validators and userValidators.ts file
+-in userValidators.ts file create and export variable array const registerUserValidator 
+-in users.route.ts file import array registerUserValidator
+-invoke function app.use() for variable userRoutes
+-open Postman and test endpoint {{BASE_URL}}/api/v1/users/register with POST method
+-test endpoint with correct and wrong data
+-open MongoDB to see saved user
