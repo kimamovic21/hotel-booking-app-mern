@@ -104,3 +104,11 @@ export async function loginUser(req: Request, res: Response) {
 export async function validateToken(req: Request, res: Response) {
   return res.status(200).send({ userId: req.userId });
 };
+
+export async function logoutUser(req: Request, res: Response) {
+  res.cookie('auth_token', '', {
+    expires: new Date(0),
+  });
+
+  res.send();
+};

@@ -181,3 +181,34 @@ Checking user login state
 -open MongoDB to see saved user
 -open cookies settings in web browser
 -remove cookie and refresh page
+
+
+Sign-in & sign-out
+
+-in folder types create signInFormData.ts
+-in signInFormData.ts file create and export type SignInFormData
+-in folder pages create component SignInPage.tsx
+-in component SignInPage.tsx import type SignInFormData
+-import and invoke function useForm()
+-in tsx create HTML elements with Tailwind CSS classes
+-add logic for login validation
+-in component App.tsx import component SignInPage
+-in tsx add component Route for component SignInPage
+-in api-client.ts file import type SignInFormData
+-create and export async function signInUser()
+-in component SignInPage.tsx import and invoke function useMutation()
+-import function signInUser
+-import and invoke functions useAppContext() and useNavigate()
+-open route: http://localhost:5173/sign-in
+-add user information and click button Login
+-remove cookie and refresh page
+-in auth.controller.ts file create and export async function logoutUser()
+-in auth.route.ts file import function logoutUser
+-invoke function router.post() for route '/logout'
+-in api-client.ts file create and export async function signOutUser()
+-in folder shared create component SignOutButton.tsx
+-in component SignOutButton.tsx add logic for logout user
+-in component Header.tsx import component SignOutButton
+-update
+-in components RegisterPage.tsx and SignInPage.tsx import function useQueryClient()
+-open route: http://localhost:5173 and click button Sign Out
