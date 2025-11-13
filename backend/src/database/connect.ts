@@ -11,9 +11,15 @@ export async function connectDB(): Promise<void> {
 
     await mongoose.connect(connectionString);
 
-    console.log(chalk.green.bold('MongoDB connected successfully.'));
+    // console.log(chalk.green.bold(
+    //   `MongoDB connected to database: ${connectionString}`
+    // ));
+
+    console.log(chalk.green.bold(`MongoDB connected to database.`));
   } catch (error) {
-    console.error(chalk.red.bold('Failed to connect to MongoDB:'), error);
+    console.error(chalk.red.bold(
+      `Failed to connect to MongoDB: ${error}`
+    ));
     process.exit(1);
   };
 };

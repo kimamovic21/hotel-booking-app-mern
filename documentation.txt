@@ -212,3 +212,14 @@ Sign-in & sign-out
 -update
 -in components RegisterPage.tsx and SignInPage.tsx import function useQueryClient()
 -open route: http://localhost:5173 and click button Sign Out
+
+
+Automated tests & setup test database
+
+-create new e2e test database
+-in folder backend create files .env.e2e and .env.e2e.example
+-open link: https://www.npmjs.com/package/cross-env
+-type command: npm i cross-env
+-in package.json file add command: e2e
+-update connect.ts file
+-type command: npm run e2e 
