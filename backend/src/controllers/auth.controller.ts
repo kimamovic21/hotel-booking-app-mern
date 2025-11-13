@@ -7,6 +7,14 @@ import User from '../models/user';
 const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY as string;
 const NODE_ENV = process.env.NODE_ENV as string;
 
+declare global {
+  namespace Express {
+    interface Request {
+      userId: string;
+    }
+  }
+};
+
 export async function registerUser(req: Request, res: Response) {
   const errors = validationResult(req);
 
@@ -91,4 +99,8 @@ export async function loginUser(req: Request, res: Response) {
 
     return res.status(500).json({ message: 'Something went wrong!' });
   };
+};
+
+export async function validateToken(req: Request, res: Response) {
+  return res.status(200).send({ userId: req.userId });
 };

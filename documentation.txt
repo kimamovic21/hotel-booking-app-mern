@@ -154,3 +154,30 @@ App Context & Toast notifications
 -open route: http://localhost:5173/register
 -add user information and click button Create Account
 -open MongoDB to see saved user
+
+
+Checking user login state
+
+-in api-client.ts file update function registerUser()
+-in .env file create variable FRONTEND_URL
+-type command: npm i cookie-parser
+-type command: npm i @types/cookie-parser --save-dev
+-in index.ts file update function cors()
+-invoke function app.use( cookieParser())
+-in auth.controller.ts create and export async function validateToken()
+-create folder middlewares and auth.middleware.ts file
+-in auth.middleware.ts file create and export async function verifyToken()
+-in auth.route.ts file import functions verifyToken and validateToken
+-invoke function router.get() for route '/validate-token'
+-in folder frontend, in folder types update appContext.ts file
+-in api-client.ts file create and export async function validateToken()
+-in component AppContext.tsx import function validateToken
+-import and invoke function useQuery()
+-in tsx add to component AppContext.Provider update prop value
+-in component Header.tsx import and invoke function useAppContext()
+-in tsx add ternary condition for variable isLoggedIn
+-open route: http://localhost:5173/register
+-add user information and click button Create Account
+-open MongoDB to see saved user
+-open cookies settings in web browser
+-remove cookie and refresh page
