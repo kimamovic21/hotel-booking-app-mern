@@ -243,3 +243,18 @@ Auth tests - Login & Register
 -open setting Test explorer and click button Run Test
 -invoke function test() for allowing the user to register
 -open setting Test explorer and click button Run Test
+
+
+Deployment build scripts & Render deployment
+
+-in folder backend, in package.json file add commands build and start
+-type command: npm i fix-esm-import-path --save-dev
+-update files package.json and tsconfig.json
+-in index.ts file invoke function app.use(express.static())
+-type command: npm run build
+-type command: npm start
+-in folder frontend type command: npm run build
+-open route: http://localhost:3000
+-open link: https://render.com and deploy your projects frontend and backend
+-in option settings add your variables from .env files
+-in production MongoDB database update Render IP addresses
