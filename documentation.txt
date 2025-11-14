@@ -10,6 +10,7 @@ Backend setup
 -type command: npm init
 -type command: npm i express cors dotenv mongodb mongoose chalk
 -type command: npm i @types/node @types/express @types/cors ts-node typescript tsx --save-dev
+-type command: npx tsx --init
 -in package.json file add command dev
 -create folder src and index.ts file
 -create .env file and variable PORT
@@ -223,3 +224,22 @@ Automated tests & setup test database
 -in package.json file add command: e2e
 -update connect.ts file
 -type command: npm run e2e 
+
+
+Auth tests - Login & Register
+
+-install VS CODE extension Playwright test
+-open link: https://playwright.dev
+-type command: mkdir e2e
+-type command: cd e2e
+-type command: npm init playwright@latest
+-in folder tests create auth.spec.ts file
+-in auth.spec.ts file import functions test and expect from package @playwright/test
+-create variable const UI_URL 
+-invoke function test() for allowing the user to sign in
+-type command: cd backend
+-type command: npm run e2e
+-create test user in MongoDB test database
+-open setting Test explorer and click button Run Test
+-invoke function test() for allowing the user to register
+-open setting Test explorer and click button Run Test
