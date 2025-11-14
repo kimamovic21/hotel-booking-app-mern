@@ -1,11 +1,17 @@
 import 'dotenv/config';
 import express, { type Request, type Response } from 'express';
+import { v2 as cloudinary } from 'cloudinary';
 import { connectDB } from './database/connect';
 import cors from 'cors';
 import chalk from 'chalk';
 import cookieParser from 'cookie-parser';
 import authRoutes from './routes/auth.route';
-// import path from 'path';
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 const PORT = process.env.PORT || 3000;
 const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';
@@ -19,7 +25,6 @@ app.use(cors({
   origin: FRONTEND_URL,
   credentials: true,
 }));
-// app.use(express.static(path.join(__dirname, '../../frontend/dist')));
 
 app.use('/api/v1/auth', authRoutes);
 

@@ -258,3 +258,13 @@ Deployment build scripts & Render deployment
 -open link: https://render.com and deploy your projects frontend and backend
 -in option settings add your variables from .env files
 -in production MongoDB database update Render IP addresses
+
+
+Cloudinary setup
+
+-downgrade react version from 19 to 
+-open link: https://cloudinary.com
+-in files .env and .env.e2e create variables CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY and CLOUDINARY_API_SECRET
+-open link: https://www.npmjs.com/package/cloudinary
+-type command: npm i cloudinary
+-in index.ts file import object cloudinary
