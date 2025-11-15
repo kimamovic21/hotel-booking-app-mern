@@ -13,6 +13,9 @@ export const createHotelValidator = [
   body('description')
     .notEmpty()
     .withMessage('Description is required!'),
+  body('starRating')
+    .notEmpty()
+    .withMessage('Star rating is required!'),
   body('type')
     .notEmpty()
     .withMessage('Hotel type is required!'),
