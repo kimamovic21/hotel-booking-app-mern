@@ -4,11 +4,15 @@ import {
   Route,
   Navigate,
 } from 'react-router-dom';
+import { useAppContext } from './contexts/AppContext';
 import Layout from './layouts/Layout';
 import RegisterPage from './pages/RegisterPage';
 import SignInPage from './pages/SignInPage';
+import AddHotel from './pages/AddHotelPate';
 
 const App = () => {
+  const { isLoggedIn } = useAppContext();
+
   return (
     <Router>
       <Routes>
@@ -48,6 +52,19 @@ const App = () => {
           }
         />
 
+        {isLoggedIn && (
+          <>
+            <Route
+              path='/add-hotel'
+              element={
+                <Layout>
+                  <AddHotel />
+                </Layout>
+              }
+            />
+          </>
+        )}
+        
         <Route
           path='*'
           element={<Navigate to='/' />}

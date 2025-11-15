@@ -297,3 +297,52 @@ Create Hotel API
 -in myHotels.route.ts file import array createHotelValidator
 -in index.ts file import variable myHotelRoutes from myHotel.route.ts file
 -invoke function app.use() for variable myHotelRoutes
+
+
+Create hotel form
+
+-in folder pages create component AddHotelPage.tsx
+-in component App.tsx import component AddHotelPage
+-import and invoke function useAppContext()
+-in tsx add component Route for component AddHotelPage
+-in folder src create folders forms and ManageHotelForm
+-in folder ManageHotelForm create component ManageHotelForm.tsx
+-in component AddHotelPage.tsx import component ManageHotelForm
+-in folder types create hotelFormData.ts file
+-in hotelFormData.ts file create and export type HotelFormData
+-in component ManageHotelForm.tsx import type HotelFormData
+-import and invoke function useForm()
+-import component FormProvider
+-in tsx add form validation for creating hotel
+-create component HotelDetailsSection.tsx
+-in component HotelDetailsSection.tsx import and invoke function useFormContext()
+-import type HotelFormData
+-in tsx create HTML elements with Tailwind CSS classes
+-in component ManageHotelForm.tsx import component HotelDetailsSection
+-in folder src create folder config and hotelOptionsConfig.ts file
+-in hotelOptionsConfig.ts file create and export variables arrays const hotelTypesArray and const hotelFacilitiesArray
+-in folder ManageHotelForm create component HotelTypeSection.tsx
+-in component HotelTypeSection.tsx import variable hotelTypesArray
+-import and invoke function useFormContext()
+-in tsx cre HTML elements with Tailwind CSS classes
+-in component ManageHotelForm.tsx import component HotelTypeSection
+-in folder ManageHotelForm create component HotelFacilitiesSection.tsx
+-in component HotelFacilitiesSection.tsx import variable array hotelFacilitiesArray
+-import and invoke function useFormContext()
+-import type HotelFormData
+-in component ManageHotelForm.tsx import component HotelFacilitiesSection
+-create component HotelGuestsSection.tsx
+-in component HotelGuestsSection.tsx import and invoke function useFormContext()
+-import type HotelFormData
+-in tsx create HTML elements with Tailwind CSS classes
+-in component ManageHotelForm.tsx import component HotelGuestsSection
+-create component HotelImagesSection.tsx
+-in component HotelImagesSection.tsx import and invoke function useFormContext()
+-import type HotelFormData
+-in tsx create HTML elements with Tailwind CSS classes
+-in component ManageHotelForm.tsx import component HotelImagesSection
+-in tsx create HTML elements span and button
+-destructure function handleSubmit from variable formMethods
+-create function onSubmit()
+-open route: http://localhost:5173/add-hotel and click save
+-add information about hotel and click button Save
