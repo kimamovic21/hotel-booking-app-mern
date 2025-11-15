@@ -268,3 +268,32 @@ Cloudinary setup
 -open link: https://www.npmjs.com/package/cloudinary
 -type command: npm i cloudinary
 -in index.ts file import object cloudinary
+
+
+Create Hotel API
+
+-open link: https://www.npmjs.com/package/body-parser
+-type command: npm i body-parser
+-in index.ts import object bodyParser from package body-parser
+-open link: https://www.npmjs.com/package/multer
+-type command: npm i multer
+-type command: npm i --save-dev @types/multer
+-create myHotel.controller.ts file
+-create and export async function createHotel()
+-create myHotel.route.ts file
+-in myHotel.route.ts file add logic for uploading image to Cloudinary service
+-import function createHotel
+-invoke route router.post() for function createHotel
+-in folder models create hotel.ts file and model Hotel
+-create folder types and files userType.ts and hotelType.ts
+-in file userType.ts create and export type UserType
+-in file hotelType.ts create and export type HotelType
+-in user.ts file import type UserType from userType.ts file
+-in hotel.ts file import type HotelType from hotelType.ts file
+-in myHotel.controller.ts file import type HotelType and model Hotel
+-in myHotel.route.ts file import function verifyToken
+-in folder validators create myHotelsValidators.ts file
+-in myHotelsValidators.ts file create and export array createHotelValidator
+-in myHotels.route.ts file import array createHotelValidator
+-in index.ts file import variable myHotelRoutes from myHotel.route.ts file
+-invoke function app.use() for variable myHotelRoutes
