@@ -357,3 +357,16 @@ Create hotel form
 -add information about hotel and click button Save
 -open MongoDB to see saved hotel
 -open Cloudinary service to see saved hotel images
+
+
+Create hotel form test
+
+-type command: cd backend
+-type command: npm run e2e
+-in folder e2e type command: npx tsc --init
+-in folder tests create manageHotel.spec.ts file
+-in manageHotel.spec.ts file import functions test and expect
+-invoke function test().beforeEach()
+-invoke function test for allowing user to add a hotel
+-in folder tests create folder files and add two images
+-open setting Test explorer and click button Run Test
