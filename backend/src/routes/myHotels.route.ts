@@ -1,5 +1,8 @@
 import { Router } from 'express';
-import { createHotel } from '../controllers/myHotels.controller';
+import { 
+  createHotel, 
+  getAllHotels 
+} from '../controllers/myHotels.controller';
 import { verifyToken } from '../middlewares/auth.middleware';
 import { createHotelValidator } from '../validators/myHotelsValidators';
 import multer from 'multer';
@@ -20,6 +23,12 @@ router.post(
   createHotelValidator,
   upload.array('imageFiles', 6),
   createHotel
+);
+
+router.get(
+  '/',
+  verifyToken,
+  getAllHotels
 );
 
 export default router;

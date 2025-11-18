@@ -9,6 +9,7 @@ import Layout from './layouts/Layout';
 import RegisterPage from './pages/RegisterPage';
 import SignInPage from './pages/SignInPage';
 import AddHotel from './pages/AddHotelPate';
+import MyHotelsPage from './pages/MyHotelsPage';
 
 const App = () => {
   const { isLoggedIn } = useAppContext();
@@ -62,9 +63,17 @@ const App = () => {
                 </Layout>
               }
             />
+            <Route
+              path='/my-hotels'
+              element={
+                <Layout>
+                  <MyHotelsPage />
+                </Layout>
+              }
+            />
           </>
         )}
-        
+
         <Route
           path='*'
           element={<Navigate to='/' />}

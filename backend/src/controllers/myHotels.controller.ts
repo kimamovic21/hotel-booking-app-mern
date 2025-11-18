@@ -32,3 +32,21 @@ export async function createHotel(req: Request, res: Response) {
     return res.status(500).json({ message: 'Something went wrong!' });
   };
 };
+
+export async function getAllHotels(req: Request, res: Response) {
+  try {
+    const hotels = await Hotel.find({ userId: req.userId });
+
+    if (!hotels || hotels.length === 0) {
+      return res
+        .status(404)
+        .json({ message: 'No hotels found for this user.' });
+    };
+
+    return res.status(200).json(hotels);
+  } catch (err) {
+    console.error(err);
+
+    return res.status(500).json({ message: 'Error fetching data!' });
+  };
+};

@@ -370,3 +370,22 @@ Create hotel form test
 -invoke function test for allowing user to add a hotel
 -in folder tests create folder files and add two images
 -open setting Test explorer and click button Run Test
+
+
+View my hotels feature
+
+-in myHotels.controller.ts file create and export async function getAllHotels()
+-in myHotels.route.ts file import function getAllHotels
+-invoke function router.get() for function getAllHotels
+-in api-client.ts file create and export function fetchMyHotels()
+-in folder types create hotelType.ts file and type HotelType
+-in api-client.ts file import type HotelType
+-in folder pages cre component MyHotelsPage.tsx
+-in component App.tsx import component MyHotelsPage
+-in tsx add component Router for component MyHotelsPage
+-in component MyHotelsPage.tsx import and invoke function useQuery()
+-import function fetchMyHotels
+-in tsx create HTML elements with Tailwind CSS classes
+-type command: npm i react-icons
+-import react icons from package react-icons
+-open route: http://localhost:5173/my-hotels
