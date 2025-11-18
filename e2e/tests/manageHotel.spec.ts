@@ -18,31 +18,54 @@ test.beforeEach(async ({ page }) => {
   await expect(page.getByText('Sign in Successful!')).toBeVisible();
 });
 
-test('should allow user to add a hotel', async ({ page }) => {
+
+test("should allow user to add a hotel", async ({ page }) => {
   await page.goto(`${UI_URL}/add-hotel`);
 
-  await page.locator('[name="name"]').fill('Test Hotel');
-  await page.locator('[name="city"]').fill('Test City');
-  await page.locator('[name="country"]').fill('Test Country');
+  await page.locator('[name="name"]').fill("Test Hotel");
+  await page.locator('[name="city"]').fill("Test City");
+  await page.locator('[name="country"]').fill("Test Country");
   await page
     .locator('[name="description"]')
-    .fill('This is a description for the Test Hotel');
-  await page.locator('[name="pricePerNight"]').fill('100');
-  await page.selectOption('select[name="starRating"]', '3');
+    .fill("This is a description for the Test Hotel");
+  await page.locator('[name="pricePerNight"]').fill("100");
+  await page.selectOption('select[name="starRating"]', "3");
 
-  await page.getByText('Budget').click();
+  await page.getByText("Budget").click();
 
-  await page.getByLabel('Free Wifi').check();
-  await page.getByLabel('Parking').check();
+  await page.getByLabel("Free Wifi").check();
+  await page.getByLabel("Parking").check();
 
-  await page.locator('[name="adultCount"]').fill('2');
-  await page.locator('[name="childCount"]').fill('4');
+  await page.locator('[name="adultCount"]').fill("2");
+  await page.locator('[name="childCount"]').fill("4");
 
   await page.setInputFiles('[name="imageFiles"]', [
-    path.join(__dirname, 'files', '1.png'),
-    path.join(__dirname, 'files', '2.png'),
+    path.join(__dirname, "files", "1.png"),
+    path.join(__dirname, "files", "2.png"),
   ]);
 
-  await page.getByRole('button', { name: 'Save' }).click();
-  await expect(page.getByText('Hotel Saved!')).toBeVisible();
+  await page.getByRole("button", { name: "Save" }).click();
+  await expect(page.getByText("Hotel Saved!")).toBeVisible();
+});
+
+
+test('should display hotels', async ({ page }) => {
+  await page.goto(`${UI_URL}/my-hotels`);
+
+  const hotelCard = page.locator('[data-testid="hotel-card"]', {
+    hasText: 'My small test hotel'
+  });
+
+  await expect(hotelCard.getByText('My small test hotel')).toBeVisible();
+  await expect(hotelCard.getByText(/lorem ipsum dolor sit amet/i)).toBeVisible();
+  await expect(hotelCard.getByText('Sarajevo, Bosnia & Herzegovina')).toBeVisible();
+  await expect(hotelCard.getByText('$99 per night')).toBeVisible();
+
+  await expect(hotelCard.getByText(/2 adults/i)).toBeVisible();
+  await expect(hotelCard.getByText(/2 children/i)).toBeVisible();
+
+  await expect(hotelCard.getByText('3 Star Rating')).toBeVisible();
+
+  await expect(hotelCard.getByRole('link', { name: 'View Details' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Add Hotel' })).toBeVisible();
 });

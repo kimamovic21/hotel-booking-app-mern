@@ -8,7 +8,7 @@ import { useAppContext } from './contexts/AppContext';
 import Layout from './layouts/Layout';
 import RegisterPage from './pages/RegisterPage';
 import SignInPage from './pages/SignInPage';
-import AddHotel from './pages/AddHotelPate';
+import AddHotelPage from './pages/AddHotelPage';
 import MyHotelsPage from './pages/MyHotelsPage';
 
 const App = () => {
@@ -59,7 +59,7 @@ const App = () => {
               path='/add-hotel'
               element={
                 <Layout>
-                  <AddHotel />
+                  <AddHotelPage />
                 </Layout>
               }
             />

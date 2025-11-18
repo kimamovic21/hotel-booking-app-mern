@@ -389,3 +389,13 @@ View my hotels feature
 -type command: npm i react-icons
 -import react icons from package react-icons
 -open route: http://localhost:5173/my-hotels
+
+
+View my hotels test
+
+-type command: cd backend
+-type command: npm run e2e
+-in manageHotel.spec.ts file invoke function test() for displaying hotels
+-update component MyHotelsPage.tsx
+-in auth.controller.ts file update functions res.cookie()
+-in index.ts file add array methods

@@ -26,6 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors({
   origin: FRONTEND_URL,
   credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
 }));
 app.use(bodyParser.json());
 
