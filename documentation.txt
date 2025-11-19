@@ -399,3 +399,33 @@ View my hotels test
 -update component MyHotelsPage.tsx
 -in auth.controller.ts file update functions res.cookie()
 -in index.ts file add array methods
+
+
+Edit my hotel feature
+
+-in myHotels.controller.ts file create and export async function getHotelById()
+-in myHotels.route.ts file import function getHotelById()
+-invoke function router.get() for function getHotelById()
+-in api-client.ts file create and export function fetchMyHotelById()
+-in folder pages create component EditHotelPage.tsx
+-in component EditHotelPage.tsx import functions useParams, useQuery and fetchMyHotelById 
+-import component ManageHotelForm
+-in component ManageHotelForm import type HotelType
+-import and invoke function useEffect()
+-in component App.tsx import component EditHotelPage
+-in tsx add component Route for component EditHotelPage
+-open route: http://localhost:5173/my-hotels
+-open route: http://localhost:5173/edit-hotel/[hotelId]
+-choose one hotel and click button View Details 
+-in hotelFormData.ts file update type HotelFormData
+-update component HotelImagesSection.tsx to update and delete images
+-update functions res.cookie() in auth.controller.ts file
+-in myHotels.controller.ts file create and export async function updateHotelById()
+-in myHotels.route.ts file import function updateHotelById
+-invoke function router.put() for function updateHotelById
+-in myHotelsValidators.ts file create and export variable array const updateHotelValidator
+-in myHotelRoutes.route.ts file import array updateHotelValidator
+-in api-client.ts create and export function updateMyHotelById()
+-in component EditHotelPage.tsx import and invoke functions useMutation() and useAppContext
+-in tsx add to component ManageHotelForm props
+-open route: http://localhost:5173/edit-hotel/[hotelId] and update hotel information

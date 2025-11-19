@@ -1,10 +1,15 @@
 import { Router } from 'express';
-import { 
-  createHotel, 
-  getAllHotels 
+import {
+  createHotel,
+  getAllHotels,
+  getHotelById,
+  updateHotelById
 } from '../controllers/myHotels.controller';
 import { verifyToken } from '../middlewares/auth.middleware';
-import { createHotelValidator } from '../validators/myHotelsValidators';
+import {
+  createHotelValidator,
+  updateHotelValidator
+} from '../validators/myHotelsValidators';
 import multer from 'multer';
 
 const router = Router();
@@ -29,6 +34,20 @@ router.get(
   '/',
   verifyToken,
   getAllHotels
+);
+
+router.get(
+  '/:id',
+  verifyToken,
+  getHotelById
+);
+
+router.put(
+  '/:hotelId',
+  verifyToken,
+  updateHotelValidator,
+  upload.array('imageFiles', 6),
+  updateHotelById
 );
 
 export default router;

@@ -6,8 +6,24 @@ const HotelImagesSection = () => {
     register,
     formState: {
       errors
-    }
+    },
+    watch,
+    setValue
   } = useFormContext<HotelFormData>();
+
+  const existingImageUrls = watch('imageUrls');
+
+  const handleDelete = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    imageUrl: string
+  ) => {
+    event.preventDefault();
+
+    setValue(
+      'imageUrls',
+      existingImageUrls.filter((url) => url !== imageUrl)
+    );
+  };
 
   return (
     <div>
@@ -16,6 +32,26 @@ const HotelImagesSection = () => {
       </h2>
 
       <div className='border border-gray-300 p-2'>
+        {existingImageUrls && (
+          <div className='grid grid-cols-6 gap-4'>
+            {existingImageUrls.map((imageUrl) => (
+              <div key={imageUrl} className='relative group'>
+                <img
+                  src={imageUrl}
+                  alt='Cloudinary Image URL'
+                  className='min-h-full object-cover'
+                />
+                <button
+                  className='absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 text-white cursor-pointer'
+                  onClick={(event) => handleDelete(event, imageUrl)}
+                >
+                  Delete
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
+
         <input
           type='file'
           multiple
@@ -23,7 +59,8 @@ const HotelImagesSection = () => {
           className='w-full text-gray-700 font-normal cursor-pointer'
           {...register('imageFiles', {
             validate: (imageFiles) => {
-              const totalLength = imageFiles.length;
+              const totalLength =
+                imageFiles.length + (existingImageUrls?.length || 0);
 
               if (totalLength === 0) {
                 return 'At least one image should be added!';
