@@ -434,3 +434,11 @@ Edit my hotel feature
 Image upload fix
 
 -in component HotelImagesSection.tsx add logic to display existing images and newly added images
+
+
+Edit my hotel test
+
+-type command: cd backend
+-type command: npm run e2e
+-in manageHotel.spec.ts file invoke function test for updating hotel
+-open setting Test explorer and click button Run Test
