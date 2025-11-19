@@ -8,7 +8,6 @@ const HotelDetailsSection = () => {
       errors
     }
   } = useFormContext<HotelFormData>();
-  console.log(errors);
 
   return (
     <div className='flex flex-col gap-4'>

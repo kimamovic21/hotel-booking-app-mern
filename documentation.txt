@@ -429,3 +429,8 @@ Edit my hotel feature
 -in component EditHotelPage.tsx import and invoke functions useMutation() and useAppContext
 -in tsx add to component ManageHotelForm props
 -open route: http://localhost:5173/edit-hotel/[hotelId] and update hotel information
+
+
+Image upload fix
+
+-in component HotelImagesSection.tsx add logic to display existing images and newly added images
