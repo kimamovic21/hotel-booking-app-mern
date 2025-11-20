@@ -455,3 +455,13 @@ Search hotels backend & search API
 -in hotelSearchResponse.ts file create and export type HotelSearchResponse
 -in hotels.controller.ts file import type HotelSearchResponse
 -in index.ts file import variable hotelsRoutes from hotels.route.ts file
+
+
+Search hotels context
+
+-in folder frontend, in folder types create searchContext.ts file
+-in searchContext.ts file create and export type SearchContext
+-in folder contexts create component SearchContext.tsx
+-in component SearchContext.tsx import function createContext and type SearchContext
+-add logic for search context
+-in component main.tsx import component SearchContextProvider from component SearchContext.tsx
