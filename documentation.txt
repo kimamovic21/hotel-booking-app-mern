@@ -442,3 +442,16 @@ Edit my hotel test
 -type command: npm run e2e
 -in manageHotel.spec.ts file invoke function test for updating hotel
 -open setting Test explorer and click button Run Test
+
+
+Search hotels backend & search API
+
+-in folder controller create hotels.controller.file
+-in hotels.controller.file create and export async function searchHotel()
+-in folder routes create hotels.route.ts file
+-in  hotels.route.ts file import function searchHotel
+-invoke function app.get() for function searchHotel
+-in folder types create hotelSearchResponse.ts file
+-in hotelSearchResponse.ts file create and export type HotelSearchResponse
+-in hotels.controller.ts file import type HotelSearchResponse
+-in index.ts file import variable hotelsRoutes from hotels.route.ts file

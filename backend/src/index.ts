@@ -8,6 +8,7 @@ import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import authRoutes from './routes/auth.route';
 import myHotelRoutes from './routes/myHotels.route';
+import hotelsRoutes from './routes/hotels.route';
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -32,6 +33,7 @@ app.use(bodyParser.json());
 
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/my-hotels', myHotelRoutes);
+app.use('/api/v1/hotels', hotelsRoutes);
 
 app.get('/api/v1/test', async (req: Request, res: Response) => {
   res.json({ message: 'Hello from Express endpoint!' });
