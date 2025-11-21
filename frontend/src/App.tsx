@@ -11,6 +11,7 @@ import SignInPage from './pages/SignInPage';
 import AddHotelPage from './pages/AddHotelPage';
 import MyHotelsPage from './pages/MyHotelsPage';
 import EditHotelPage from './pages/EditHotelPage';
+import SearchPage from './pages/SearchPage';
 
 const App = () => {
   const { isLoggedIn } = useAppContext();
@@ -31,7 +32,7 @@ const App = () => {
           path='/search'
           element={
             <Layout>
-              <p>Search</p>
+              <SearchPage />
             </Layout>
           }
         />

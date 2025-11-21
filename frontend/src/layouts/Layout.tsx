@@ -1,6 +1,7 @@
 import Footer from '../components/shared/Footer';
 import Header from '../components/shared/Header';
 import Hero from '../components/shared/Hero';
+import SearchBar from '../components/shared/SearchBar';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -12,6 +13,10 @@ const Layout = ({ children }: LayoutProps) => {
       <Header />
 
       <Hero />
+
+      <div className='container mx-auto'>
+        <SearchBar />
+      </div>
 
       <div className='container mx-auto p-6 flex-1'>
         {children}

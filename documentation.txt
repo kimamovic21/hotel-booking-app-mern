@@ -465,3 +465,18 @@ Search hotels context
 -in component SearchContext.tsx import function createContext and type SearchContext
 -add logic for search context
 -in component main.tsx import component SearchContextProvider from component SearchContext.tsx
+
+
+Search bar & Search page components 
+
+-open link: https://www.npmjs.com/package/react-datepicker
+-type command: npm i react-datepicker
+-in folder shared create component SearchBar.tsx
+-in component SearchBar.tsx import component DatePicker
+-in component SearchBar.tsx add logic for searching hotels
+-in component Layout.tsx import component SearchBar
+-in folder pages create component SearchPage.tsx
+-in component App.tsx import component SearchPage
+-in component SearchBar.tsx import and invoke function useNavigate()
+-open route: http://localhost:5173
+-open route: http://localhost:5173/search
