@@ -507,6 +507,7 @@ Search results card
 -in folder search add component SearchPage.tsx
 -create component SearchResultsCard.tsx
 -in component SearchPage.tsx import component SearchResultsCard
+-open route: http://localhost:5173/search
 
 
 Search page pagination
@@ -516,3 +517,30 @@ Search page pagination
 -add logic for search pagination
 -in component SearchPage.tsx import component SearchPagination
 -in tsx add component SearchPagination with props
+-open route: http://localhost:5173/search
+
+
+Sorting & filtering features
+
+-in hotels.controller.ts file create function function constructSearchQuery()
+-update function searchHotels()
+-in hotelClient.ts file update function searchHotel()
+-create component SearchStarRatingFilter.tsx
+-in component SearchPage.tsx import component SearchStarRatingFilter
+-create state variable for selected stars
+-create function handleStarsChange()
+-in tsx add component SearchStarRatingFilter with props
+-create component SearchHotelTypesFilter.tsx
+-in component SearchPage.tsx import component SearchHotelTypesFilter
+-create state variables for filter variables
+-create function handleHotelTypeChange()
+-in tsx add component SearchHotelTypesFilter with props
+-create component SearchFacilitiesFilter.tsx
+-in component SearchPage.tsx import component SearchFacilitiesFilter
+-create function handleFacilityChange()
+-in tsx add component SearchFacilitiesFilter with props
+-create component SearchPriceFilter.tsx
+-in component SearchPage.tsx import component SearchPriceFilter
+-in tsx add component SearchPriceFilter with props
+-in tsx create select element for sorting hotels
+-open route: http://localhost:5173/search and search hotels
