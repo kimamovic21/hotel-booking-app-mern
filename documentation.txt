@@ -498,3 +498,12 @@ Search page fetch hotels
 -add logic for searching hotels
 -update tsconfig.node.json file
 -open route: http://localhost:5173/search
+
+
+Search results card
+
+-in component SearchPage.tsx create HTML elements with Tailwind CSS classes
+-create folder search
+-in folder search add component SearchPage.tsx
+-create component SearchResultsCard.tsx
+-in component SearchPage.tsx import component SearchResultsCard

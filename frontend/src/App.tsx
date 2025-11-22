@@ -11,7 +11,7 @@ import SignInPage from './pages/SignInPage';
 import AddHotelPage from './pages/AddHotelPage';
 import MyHotelsPage from './pages/MyHotelsPage';
 import EditHotelPage from './pages/EditHotelPage';
-import SearchPage from './pages/SearchPage';
+import SearchPage from './pages/search/SearchPage';
 
 const App = () => {
   const { isLoggedIn } = useAppContext();
