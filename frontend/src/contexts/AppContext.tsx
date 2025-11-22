@@ -1,6 +1,6 @@
 import { createContext, useContext, type ReactNode, useState } from 'react';
 import { useQuery } from 'react-query';
-import { validateToken } from '../api/api-client';
+import { validateToken } from '../api/authClient';
 import type { AppContext } from '../types/appContext';
 import type { ToastMessage } from '../types/toastMessage';
 import Toast from '../components/shared/Toast';

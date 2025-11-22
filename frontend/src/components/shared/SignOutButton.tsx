@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from 'react-query';
-import { signOutUser } from '../../api/api-client';
+import { signOutUser } from '../../api/authClient';
 import { useAppContext } from '../../contexts/AppContext';
 
 const SignOutButton = () => {

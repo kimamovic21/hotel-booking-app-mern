@@ -1,6 +1,6 @@
 import { useMutation } from 'react-query';
 import { useAppContext } from '../contexts/AppContext';
-import { addMyHotel } from '../api/api-client';
+import { addMyHotel } from '../api/myHotelClient';
 import ManageHotelForm from '../forms/ManageHotelForm/ManageHotelForm';
 
 const AddHotelPage = () => {

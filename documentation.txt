@@ -480,3 +480,21 @@ Search bar & Search page components
 -in component SearchBar.tsx import and invoke function useNavigate()
 -open route: http://localhost:5173
 -open route: http://localhost:5173/search
+
+
+Search page fetch hotels
+
+-in folder api split api-client.ts file in two files: authClient.ts and myHotel.ts
+-update imports in tsx components
+-in folder types create searchParams.ts file
+-in searchParams.ts file create and export type SearchParams
+-in folder api create hClient.ts file
+-in hotelClient.ts file create function searchHotels()
+-create hotelSearchResponse.ts file
+-in hotelSearchResponse.ts file create and export type HotelSearchResponse
+-in hotelClient.ts file import types SearchParams and HotelSearchResponse
+-in component SearchPage.tsx import and invoke function useQuery()
+-import and invoke function useState()
+-add logic for searching hotels
+-update tsconfig.node.json file
+-open route: http://localhost:5173/search

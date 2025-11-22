@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { BsMap, BsBuilding } from 'react-icons/bs';
 import { BiMoney, BiHotel, BiStar } from 'react-icons/bi';
-import { fetchMyHotels } from '../api/api-client';
+import { fetchMyHotels } from '../api/myHotelClient';
 import type { HotelType } from '../types/hotelType';
 
 const MyHotelsPage = () => {
