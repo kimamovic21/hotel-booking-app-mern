@@ -507,3 +507,12 @@ Search results card
 -in folder search add component SearchPage.tsx
 -create component SearchResultsCard.tsx
 -in component SearchPage.tsx import component SearchResultsCard
+
+
+Search page pagination
+
+-in folder search create component SearchPagination.tsx
+-in component SearchPagination.tsx create HTML elements with Tailwind CSS classes
+-add logic for search pagination
+-in component SearchPage.tsx import component SearchPagination
+-in tsx add component SearchPagination with props
