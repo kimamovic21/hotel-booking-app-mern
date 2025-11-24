@@ -577,3 +577,11 @@ Hotel details page - Guest info form
 -in tsx add to component GuestInfoForm props
 -update component SignInPage.tsx
 -open route: http://localhost:5173/hotel-details/[hotelId] and click button Sign in to book
+
+
+Hotel details page test
+
+-in searchHotels.spec.ts file invoke function test() for displaying show hotel details
+-type command: cd backend
+-type command: npm run e2e
+-open setting Test explorer and click button Run Test
