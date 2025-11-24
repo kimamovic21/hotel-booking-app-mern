@@ -3,6 +3,7 @@ import { useQuery } from 'react-query';
 import { AiFillStar } from 'react-icons/ai';
 import { fetchHotelById } from '../api/hotelClient';
 import type { HotelType } from '../types/hotelType';
+import GuestInfoForm from '../forms/GuestInfoForm/GuestInfoForm';
 
 const HotelDetails = () => {
   const { hotelId } = useParams();
@@ -59,7 +60,10 @@ const HotelDetails = () => {
         </div>
 
         <div className='h-fit'>
-          
+          <GuestInfoForm
+            pricePerNight={hotel.pricePerNight}
+            hotelId={hotel._id}
+          />
         </div>
       </div>
     </section>

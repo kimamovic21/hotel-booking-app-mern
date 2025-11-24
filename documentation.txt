@@ -567,3 +567,13 @@ Hotel details page
 -in component App.tsx import component HotelDetails
 -in tsx add component Route for component HotelDetails
 -open route: http://localhost:5173/hotel-details/[hotelId]
+
+
+Hotel details page - Guest info form
+
+-in folder forms create folder GuestInfoForm and component GuestInfoForm.tsx
+-in component GuestInfoForm.tsx add logic for date picker, adult count, child count and book button
+-in component HotelDetails.tsx import component GuestInfoForm
+-in tsx add to component GuestInfoForm props
+-update component SignInPage.tsx
+-open route: http://localhost:5173/hotel-details/[hotelId] and click button Sign in to book
