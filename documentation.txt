@@ -585,3 +585,8 @@ Hotel details page test
 -type command: cd backend
 -type command: npm run e2e
 -open setting Test explorer and click button Run Test
+
+
+Save search terms to session storage
+
+-in component SearchContext.tsx update state variables
