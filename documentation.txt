@@ -544,3 +544,12 @@ Sorting & filtering features
 -in tsx add component SearchPriceFilter with props
 -in tsx create select element for sorting hotels
 -open route: http://localhost:5173/search and search hotels
+
+
+Search page test
+
+-in folder tests create searchHotels.spec.ts file
+-in searchHotels.spec.ts file invoke function for displaying hotel search results
+-type command: cd backend
+-type command: npm run e2e
+-open setting Test explorer and click button Run Test
