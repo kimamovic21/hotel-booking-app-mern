@@ -1,5 +1,6 @@
 import type { SearchParams } from '../types/searchParams';
 import type { HotelSearchResponse } from '../types/hotelSearchResponse';
+import type { HotelType } from '../types/hotelType';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -28,6 +29,18 @@ export const searchHotels = async (
 
   if (!response.ok) {
     throw new Error('Error fetching hotels');
+  };
+
+  return response.json();
+};
+
+export const fetchHotelById = async (
+  hotelId: string
+): Promise<HotelType> => {
+  const response = await fetch(`${API_BASE_URL}/hotels/${hotelId}`);
+
+  if (!response.ok) {
+    throw new Error('Error fetching hotel!');
   };
 
   return response.json();

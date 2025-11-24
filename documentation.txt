@@ -553,3 +553,17 @@ Search page test
 -type command: cd backend
 -type command: npm run e2e
 -open setting Test explorer and click button Run Test
+
+
+Hotel details page
+
+-in hotels.controller.ts file create and export async function getHotelDetailsById()
+-in folder validators create hotelsValidators.ts file
+-in hotelsValidators.ts file create and export array const hotelParamsValidator
+-in hotels.route.ts file import function getHotelById and array hotelParamsValidator
+-invoke function router.get() for function getHotelDetailsById
+-in folder pages create component HotelDetails.tsx
+-in component HotelDetails.tsx create HTML elements with Tailwind CSS classes
+-in component App.tsx import component HotelDetails
+-in tsx add component Route for component HotelDetails
+-open route: http://localhost:5173/hotel-details/[hotelId]

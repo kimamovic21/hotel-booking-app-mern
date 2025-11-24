@@ -1,6 +1,27 @@
 import type { Request, Response } from 'express';
+import { validationResult } from 'express-validator';
 import type { HotelSearchResponse } from '../types/hotelSearchResponse';
 import Hotel from '../models/hotel';
+
+export async function getHotelDetailsById(req: Request, res: Response) {
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  };
+
+  const id = req.params.id.toString();
+
+  try {
+    const hotel = await Hotel.findById(id);
+
+    return res.json(hotel);
+  } catch (err) {
+    console.error(err);
+
+    return res.status(500).json({ message: 'Error fetching hotel!' });
+  };
+};
 
 export async function searchHotel(req: Request, res: Response) {
   try {
