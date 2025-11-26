@@ -1,13 +1,20 @@
 import { Router } from 'express';
 import {
   searchHotel,
-  getHotelDetailsById
+  getHotelDetailsById,
+  createPayment
 } from '../controllers/hotels.controller';
 import { hotelParamsValidator } from '../validators/hotelsValidators';
+import { verifyToken } from '../middlewares/auth.middleware';
 
 const router = Router();
 
 router.get('/search', searchHotel);
 router.get('/:id', hotelParamsValidator, getHotelDetailsById);
+router.post(
+  '/:hotelId/bookings/payment-intent',
+  verifyToken,
+  createPayment
+);
 
 export default router;

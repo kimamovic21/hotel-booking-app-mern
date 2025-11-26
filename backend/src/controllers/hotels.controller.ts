@@ -1,6 +1,7 @@
 import type { Request, Response } from 'express';
 import { validationResult } from 'express-validator';
 import type { HotelSearchResponse } from '../types/hotelSearchResponse';
+import Stripe from 'stripe';
 import Hotel from '../models/hotel';
 
 export async function getHotelDetailsById(req: Request, res: Response) {
@@ -129,4 +130,46 @@ function constructSearchQuery(queryParams: any) {
   };
 
   return constructedQuery;
+};
+
+export async function createPayment(req: Request, res: Response) {
+  const { numberOfNights } = req.body;
+  const hotelId = req.params.hotelId;
+
+  const stripe = new Stripe(process.env.STRIPE_API_KEY as string);
+
+  try {
+    const hotel = await Hotel.findById(hotelId);
+
+    if (!hotel) {
+      return res.status(400).json({ message: 'Hotel not found!' });
+    };
+
+    const totalCost = hotel.pricePerNight * numberOfNights;
+
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount: totalCost,
+      currency: 'usd',
+      metadata: {
+        hotelId,
+        userId: req.userId,
+      },
+    });
+
+    if (!paymentIntent.client_secret) {
+      return res.status(500).json({ message: 'Error creating payment intent!' });
+    };
+
+    const response = {
+      paymentIntentId: paymentIntent.id,
+      clientSecret: paymentIntent.client_secret.toString(),
+      totalCost
+    };
+
+    return res.send(response);
+  } catch (err: unknown) {
+    console.error(err);
+
+    return res.status(500).json({ message: 'Something went wrong' });
+  };
 };

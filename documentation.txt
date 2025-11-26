@@ -623,3 +623,17 @@ Booking confirmation guest info details
 -in component BookingPage.tsx import component BookingDetailsSummary
 -in tsx add component BookingDetailsSummary with props
 -open route: http://localhost:5173/hotel/[hotelId]/booking
+
+
+Stripe setup & create payment intent endpoint
+
+-open link: https://dashboard.stripe.com
+-open dashboard and create Stripe sandbox project
+-open link: https://www.npmjs.com/package/stripe
+-type command: npm i stripe
+-in files .env and .env.e2e create variable STRIPE_API_KEY
+-in hotels.controller.ts file create and export async function createPayment
+-in hotels.route.ts file import function createPayment
+-invoke function router.post() for function createPayment
+-in folder frontend create paymentIntentResponse.ts file
+-in paymentIntentResponse.ts file create and export type PaymentIntentResponse
