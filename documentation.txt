@@ -590,3 +590,26 @@ Hotel details page test
 Save search terms to session storage
 
 -in component SearchContext.tsx update state variables
+
+
+Booking confirmation user details
+
+-in auth.controller.ts file create and export async function currentUser()
+-in auth.route.ts file import function currentUser
+-invoke function router.get() for function currentUser
+-in authClient.ts file create and export function fetchCurrentUser()
+-in folder pages create component BookingsPage.tsx
+-in component BookingsPage.tsx import and invoke function fetchCurrentUser()
+-in tsx create HTML elements with Tailwind CSS classes
+-in folder types create and export type UserType
+-in authClient.ts file import type UserType
+-in component App.tsx import component BookingsPage
+-in tsx add component Route for component BookingsPage
+-in folder forms create folder BookingForm
+-in folder BookingForm create component BookingForm.tsx
+-in BookingForm.tsx create HTML elements with Tailwind CSS classes
+-in folder BookingsPage.tsx import component BookingForm
+-create bookingFormData.ts file and type BookingFormData
+-in component BookingForm.tsx import type BookingFormData
+-import and invoke function useForm()
+-open route: http://localhost:5173/hotel/[hotelId]/booking

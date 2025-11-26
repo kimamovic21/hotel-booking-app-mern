@@ -1,5 +1,6 @@
 import type { RegisterFormData } from '../types/registerFormData';
 import type { SignInFormData } from '../types/signInFormData';
+import type { UserType } from '../types/userType';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -60,4 +61,19 @@ export const signOutUser = async () => {
   if (!response.ok) {
     throw new Error('Error during sign out!');
   };
+};
+
+export const fetchCurrentUser = async (): Promise<UserType> => {
+  console.log(`${API_BASE_URL}/auth/me`)
+  const response = await fetch(`${API_BASE_URL}/auth/me`, {
+    method: 'GET',
+    credentials: 'include',
+  });
+  console.log(response);
+
+  if (!response.ok) {
+    throw new Error('Error fetching user!');
+  };
+
+  return response.json();
 };
