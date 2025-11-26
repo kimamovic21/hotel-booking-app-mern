@@ -13,7 +13,7 @@ import MyHotelsPage from './pages/MyHotelsPage';
 import EditHotelPage from './pages/EditHotelPage';
 import SearchPage from './pages/search/SearchPage';
 import HotelDetails from './pages/HotelDetails';
-import BookingPage from './pages/BookingPage';
+import BookingPage from './pages/booking/BookingPage';
 
 const App = () => {
   const { isLoggedIn } = useAppContext();
