@@ -2,7 +2,8 @@ import { Router } from 'express';
 import {
   searchHotel,
   getHotelDetailsById,
-  createPayment
+  createPayment,
+  createBooking
 } from '../controllers/hotels.controller';
 import { hotelParamsValidator } from '../validators/hotelsValidators';
 import { verifyToken } from '../middlewares/auth.middleware';
@@ -15,6 +16,11 @@ router.post(
   '/:hotelId/bookings/payment-intent',
   verifyToken,
   createPayment
+);
+router.post(
+  '/:hotelId/bookings',
+  verifyToken,
+  createBooking
 );
 
 export default router;

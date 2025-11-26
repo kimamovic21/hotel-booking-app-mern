@@ -637,3 +637,19 @@ Stripe setup & create payment intent endpoint
 -invoke function router.post() for function createPayment
 -in folder frontend create paymentIntentResponse.ts file
 -in paymentIntentResponse.ts file create and export type PaymentIntentResponse
+
+
+Booking API
+
+-in folder types create bookingType.ts file
+-in bookingType.ts file create and export type BookingType
+-in file hotelType.ts update HotelType
+-in folder backend, in folder types create bookingType.ts file
+-in bookingType.ts file create and export type BookingType
+-in file hotel.ts import type BookingType
+-create variable const bookingSchema
+-in file hotelType.ts update HotelType
+-in hotels.controller.ts file create and export async function createBooking()
+-import type BookingType
+-in hotels.route.ts file import function createBooking
+-invoke function route.post() for function createBooking

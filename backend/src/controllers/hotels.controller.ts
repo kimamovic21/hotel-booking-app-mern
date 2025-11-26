@@ -1,6 +1,7 @@
 import type { Request, Response } from 'express';
 import { validationResult } from 'express-validator';
 import type { HotelSearchResponse } from '../types/hotelSearchResponse';
+import type { BookingType } from '../types/bookingType';
 import Stripe from 'stripe';
 import Hotel from '../models/hotel';
 
@@ -17,8 +18,8 @@ export async function getHotelDetailsById(req: Request, res: Response) {
     const hotel = await Hotel.findById(id);
 
     return res.json(hotel);
-  } catch (err) {
-    console.error(err);
+  } catch (err: unknown) {
+    console.error();
 
     return res.status(500).json({ message: 'Error fetching hotel!' });
   };
@@ -70,7 +71,7 @@ export async function searchHotel(req: Request, res: Response) {
     };
 
     return res.status(200).json(response);
-  } catch (err) {
+  } catch (err: unknown) {
     console.error(err);
 
     return res.status(500).json({ message: 'Something went wrong!' });
@@ -136,6 +137,10 @@ export async function createPayment(req: Request, res: Response) {
   const { numberOfNights } = req.body;
   const hotelId = req.params.hotelId;
 
+  if (!numberOfNights || numberOfNights <= 0) {
+    return res.status(400).json({ message: 'Invalid number of nights!' });
+  };
+
   const stripe = new Stripe(process.env.STRIPE_API_KEY as string);
 
   try {
@@ -167,6 +172,61 @@ export async function createPayment(req: Request, res: Response) {
     };
 
     return res.send(response);
+  } catch (err: unknown) {
+    console.error(err);
+
+    return res.status(500).json({ message: 'Something went wrong' });
+  };
+};
+
+export async function createBooking(req: Request, res: Response) {
+  try {
+    const paymentIntentId = req.body.paymentIntentId;
+
+    const stripe = new Stripe(process.env.STRIPE_API_KEY as string);
+
+    const paymentIntent = await stripe.paymentIntents.retrieve(
+      paymentIntentId as string
+    );
+
+    if (!paymentIntent) {
+      return res.status(400).json({ message: 'Payment intent not found!' });
+    };
+
+    if (
+      paymentIntent.metadata.hotelId !== req.params.hotelId ||
+      paymentIntent.metadata.userId !== req.userId
+    ) {
+      return res.status(400).json({ message: 'Payment intent mismatch!' });
+    };
+
+    if (paymentIntent.status !== 'succeeded') {
+      return res
+        .status(400)
+        .json({
+          message: `Payment intent not succeeded. Status: ${paymentIntent.status}`
+        });
+    };
+
+    const newBooking: BookingType = {
+      ...req.body,
+      userId: req.userId,
+    };
+
+    const hotel = await Hotel.findOneAndUpdate(
+      { _id: req.params.hotelId },
+      {
+        $push: { bookings: newBooking }
+      }
+    );
+
+    if (!hotel) {
+      return res.status(400).json({ message: 'Hotel not found!' });
+    };
+
+    await hotel.save();
+
+    return res.status(200).send();
   } catch (err: unknown) {
     console.error(err);
 
