@@ -701,3 +701,11 @@ Save booking to database
 -open route: http://localhost:5173/hotel/[hotelId]/booking and click button Confirm Booking
 -open Stripe dashboard to see payments
 -open MongoDB database to see saved bookings
+
+
+Booking test
+
+-in searchHotels.spec.ts file invoke function test() for booking hotel
+-type command: cd backend
+-type command: npm run e2e
+-open setting Test explorer and click button Run Test
