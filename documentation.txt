@@ -653,3 +653,30 @@ Booking API
 -import type BookingType
 -in hotels.route.ts file import function createBooking
 -invoke function route.post() for function createBooking
+
+
+Frontend Stripe elements
+
+-open link: https://www.npmjs.com/package/@stripe/react-stripe-js
+-type command: npm i @stripe/react-stripe-js
+-open link: https://www.npmjs.com/package/@stripe/stripe-js
+-type command: npm i @stripe/stripe-js
+-in file appContext.ts update type AppContext
+-in component AppContext.tsx import and invoke function loadStripe()
+-in hotelClient.ts file create and export function createPaymentIntent()
+-import type PaymentIntentResponse
+-in component BookingPage.tsx import function createPaymentIntent()
+-invoke function useQuery() for function createPaymentIntent
+-import and invoke function useAppContext()
+-import component Elements from package stripe
+-in tsx add condition currentUser && paymentIntentData && (...)
+-add to component BookingForm prop paymentIntent
+-in component BookingForm.tsx import type PaymentIntentResponse
+-update type BookingFormProps
+-update parameter in function BookingForm
+-in tsx create HTML elements with Tailwind CSS classes for payment intent logic
+-import component CardElement from package stripe
+-create async function onSubmit()
+-import and invoke function useStripe()
+-import type StripeCardElement
+-open route: http://localhost:5173/hotel/[hotelId]/booking
