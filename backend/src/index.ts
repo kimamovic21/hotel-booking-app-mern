@@ -7,8 +7,9 @@ import chalk from 'chalk';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import authRoutes from './routes/auth.route';
-import myHotelRoutes from './routes/myHotels.route';
+import myHotelsRoutes from './routes/myHotels.route';
 import hotelsRoutes from './routes/hotels.route';
+import myBookingsRoutes from './routes/myBookings.route';
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -32,8 +33,9 @@ app.use(cors({
 app.use(bodyParser.json());
 
 app.use('/api/v1/auth', authRoutes);
-app.use('/api/v1/my-hotels', myHotelRoutes);
+app.use('/api/v1/my-hotels', myHotelsRoutes);
 app.use('/api/v1/hotels', hotelsRoutes);
+app.use('/api/v1/my-bookings', myBookingsRoutes);
 
 app.get('/api/v1/test', async (req: Request, res: Response) => {
   res.json({ message: 'Hello from Express endpoint!' });

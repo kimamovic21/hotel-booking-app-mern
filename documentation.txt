@@ -709,3 +709,24 @@ Booking test
 -type command: cd backend
 -type command: npm run e2e
 -open setting Test explorer and click button Run Test
+
+
+My bookings page
+
+-in folder backend, in folder controller create myBookings.controller.ts file
+-in myBookings.controller.ts file create and export async function getMyBookings()
+-in folder routes create myBookings.route.ts file
+-in myBookings.route.ts file add basic Router setup
+-import functions verifyToken and getMyBookings
+-invoke function router.get() for function getMyBookings
+-in index.ts file import variable 
+-invoke function app.use() for variable myBookingsRoutes
+-in folder frontend create bookingClient.ts file
+-in bookingClient.ts file create and export function fetchMyBookings()
+-in folder pages create component MyBookingsPage.tsx
+-in component MyBookingsPage.tsx import and invoke function useQuery()
+-import function fetchMyBookings
+-in tsx create HTML elements for displaying hotels information
+-in component App.tsx import component MyBookingsPage
+-in tsx add component Router for component MyBookingsPage
+-open route: http://localhost:5173/my-bookings
