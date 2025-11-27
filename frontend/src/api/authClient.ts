@@ -64,12 +64,10 @@ export const signOutUser = async () => {
 };
 
 export const fetchCurrentUser = async (): Promise<UserType> => {
-  console.log(`${API_BASE_URL}/auth/me`)
   const response = await fetch(`${API_BASE_URL}/auth/me`, {
     method: 'GET',
     credentials: 'include',
   });
-  console.log(response);
 
   if (!response.ok) {
     throw new Error('Error fetching user!');

@@ -1,4 +1,6 @@
 import { useForm } from 'react-hook-form';
+import { useParams } from 'react-router-dom';
+import { useMutation } from 'react-query';
 import {
   useElements,
   useStripe,
@@ -6,8 +8,13 @@ import {
 } from '@stripe/react-stripe-js';
 import type { UserType } from '../../types/userType';
 import type { BookingFormData } from '../../types/bookingFormData';
-import type { PaymentIntentResponse } from '../../types/paymentIntentResponse';
+import type { 
+  PaymentIntentResponse 
+} from '../../types/paymentIntentResponse';
 import type { StripeCardElement } from '@stripe/stripe-js';
+import { useSearchContext } from '../../contexts/SearchContext';
+import { createRoomBooking } from '../../api/hotelClient';
+import { useAppContext } from '../../contexts/AppContext';
 
 type BookingFormProps = {
   currentUser: UserType;
@@ -21,11 +28,32 @@ const BookingForm = ({
   const stripe = useStripe();
   const elements = useElements();
 
+  const search = useSearchContext();
+  const { showToast } = useAppContext();
+
+  const { hotelId } = useParams();
+
+  const { mutate: bookRoom, isLoading } = useMutation(createRoomBooking, {
+    onSuccess: () => {
+      showToast({ message: 'Booking Saved!', type: 'SUCCESS' });
+    },
+    onError: () => {
+      showToast({ message: 'Error saving booking!', type: 'ERROR' });
+    },
+  });
+
   const { handleSubmit, register } = useForm<BookingFormData>({
     defaultValues: {
       firstName: currentUser.firstName,
       lastName: currentUser.lastName,
       email: currentUser.email,
+      adultCount: search.adultCount,
+      childCount: search.childCount,
+      checkIn: search.checkIn.toISOString(),
+      checkOut: search.checkOut.toISOString(),
+      hotelId: hotelId,
+      paymentIntentId: paymentIntent.paymentIntentId,
+      totalCost: paymentIntent.totalCost,
     },
   });
 
@@ -39,12 +67,15 @@ const BookingForm = ({
     });
 
     if (result.paymentIntent?.status === 'succeeded') {
-
+      bookRoom({ ...formData, paymentIntentId: result.paymentIntent.id });
     };
   };
 
   return (
-    <form className='grid grid-cols-1 gap-5 rounded-lg border border-slate-300 p-5'>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className='grid grid-cols-1 gap-5 rounded-lg border border-slate-300 p-5'
+    >
       <span className='text-3xl font-bold'>
         Confirm Your Details
       </span>
@@ -109,6 +140,16 @@ const BookingForm = ({
           id='payment-element'
           className='border rounded-md p-2 text-sm'
         />
+      </div>
+
+      <div className='flex justify-end'>
+        <button
+          type='submit'
+          disabled={isLoading}
+          className='bg-blue-600 text-white p-2 font-bold hover:bg-blue-500 text-md cursor-pointer disabled:bg-gray-500'
+        >
+          {isLoading ? 'Saving...' : 'Confirm Booking'}
+        </button>
       </div>
     </form>
   );

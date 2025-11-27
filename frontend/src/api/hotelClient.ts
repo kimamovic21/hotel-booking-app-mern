@@ -2,6 +2,7 @@ import type { SearchParams } from '../types/searchParams';
 import type { HotelSearchResponse } from '../types/hotelSearchResponse';
 import type { HotelType } from '../types/hotelType';
 import type { PaymentIntentResponse } from '../types/paymentIntentResponse';
+import type { BookingFormData } from '../types/bookingFormData';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -66,4 +67,20 @@ export const createPaymentIntent = async (
   };
 
   return response.json();
+};
+
+export const createRoomBooking = async (formData: BookingFormData) => {
+  const response = await fetch(
+    `${API_BASE_URL}/hotels/${formData.hotelId}/bookings`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    credentials: 'include',
+    body: JSON.stringify(formData),
+  });
+
+  if (!response.ok) {
+    throw new Error('Error booking room');
+  };
 };

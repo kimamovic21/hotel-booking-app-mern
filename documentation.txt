@@ -680,3 +680,24 @@ Frontend Stripe elements
 -import and invoke function useStripe()
 -import type StripeCardElement
 -open route: http://localhost:5173/hotel/[hotelId]/booking
+
+
+Save booking to database
+
+-in hotelClient.ts file create and export function createRoomBooking()
+-import type BookingFormData
+-in bookingFormData.ts file update type BookingFormData 
+-in component BookingForm.tsx import and invoke function useSearchContext()
+-import and invoke function useParams()
+-update object defaultValues
+-import and invoke function useMutation()
+-import function createRoomBooking
+-in tsx add to form element event onSubmit
+-create HTML elements with Tailwind CSS classes for button Submit
+-import and invoke function useAppContext()
+-update mutation function to show toast messages
+-in hotels.controller.ts file update functions createPayment() and createBooking()
+-open link: https://docs.stripe.com/testing
+-open route: http://localhost:5173/hotel/[hotelId]/booking and click button Confirm Booking
+-open Stripe dashboard to see payments
+-open MongoDB database to see saved bookings
