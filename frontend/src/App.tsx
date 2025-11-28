@@ -15,6 +15,7 @@ import SearchPage from './pages/search/SearchPage';
 import HotelDetails from './pages/HotelDetails';
 import BookingPage from './pages/booking/BookingPage';
 import MyBookingsPage from './pages/MyBookingsPage';
+import HomePage from './pages/home/HomePage';
 
 const App = () => {
   const { isLoggedIn } = useAppContext();
@@ -26,7 +27,7 @@ const App = () => {
           path='/'
           element={
             <Layout>
-              <p>Home Page</p>
+              <HomePage />
             </Layout>
           }
         />

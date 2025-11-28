@@ -730,3 +730,22 @@ My bookings page
 -in component App.tsx import component MyBookingsPage
 -in tsx add component Router for component MyBookingsPage
 -open route: http://localhost:5173/my-bookings
+
+
+Home Page
+
+-in hotels.controller.ts file create and export async function getRecentBookings()
+-in hotels.route.ts file import function getRecentBookings
+-invoke function router.get() for function getRecentBookings
+-in hotelClient.ts file create and export function fetchRecentHotels()
+-in folder pages create folder home and component HomePage.tsx
+-in component HomePage.tsx import and invoke function useQuery()
+-import function fetchRecentHotels
+-in folder pages create component LatestDestinationCard.tsx
+-in component LatestDestinationCard, in tsx create HTML elements with Tailwind CSS classes
+-in component HomePage.tsx import component LatestDestinationCard
+-in tsx create HTML elements with Tailwind CSS classes
+-in tsx add two component LatestDestinationCard with prop hotel
+-in component App.tsx import component HomePage
+-in tsx update component Route for component HomePage
+-open route: http://localhost:5173

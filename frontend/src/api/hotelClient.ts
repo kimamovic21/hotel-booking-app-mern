@@ -6,6 +6,16 @@ import type { BookingFormData } from '../types/bookingFormData';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
+export const fetchRecentHotels = async ():Promise<HotelType[]> => {
+  const response = await fetch(`${API_BASE_URL}/hotels`);
+
+  if (!response.ok) {
+    throw new Error('Error fetching hotels');
+  };
+
+  return response.json();
+};
+
 export const searchHotels = async (
   searchParams: SearchParams
 ): Promise<HotelSearchResponse> => {

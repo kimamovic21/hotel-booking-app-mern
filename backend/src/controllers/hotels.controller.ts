@@ -74,7 +74,7 @@ export async function searchHotel(req: Request, res: Response) {
   } catch (err: unknown) {
     console.error(err);
 
-    return res.status(500).json({ message: 'Something went wrong!' });
+    return res.status(500).json({ message: 'Error searching hotel!' });
   };
 };
 
@@ -175,7 +175,7 @@ export async function createPayment(req: Request, res: Response) {
   } catch (err: unknown) {
     console.error(err);
 
-    return res.status(500).json({ message: 'Something went wrong' });
+    return res.status(500).json({ message: 'Error creating payment!' });
   };
 };
 
@@ -227,6 +227,18 @@ export async function createBooking(req: Request, res: Response) {
   } catch (err: unknown) {
     console.error(err);
 
-    return res.status(500).json({ message: 'Something went wrong' });
+    return res.status(500).json({ message: 'Error creating booking!' });
+  };
+};
+
+export async function getRecentBookings(req: Request, res: Response) {
+  try {
+    const hotels = await Hotel.find().sort('-lastUpdated');
+
+    return res.json(hotels);
+  } catch (err) {
+    console.error(err);
+
+    return res.status(500).json({ message: 'Error fetching hotels!' });
   };
 };
